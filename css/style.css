@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap");
+.botonPrincipal {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  padding: 10px;
+  background:#300AEC;
+  width: 50px;
+}
+.marcoForm {
+  width: 80%;
+  padding: 12%;
+}
+
+.mainImg {
+  width: 95%;
+  margin: 10px;
+  border-radius: 15px;
+}
