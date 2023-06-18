@@ -56,27 +56,29 @@ function Acolchado(modelo, tamaño, precio, stock) {
     }
   }
 
-//crear elementos html
-function mostrarCard() {
 
-    todosLosAcolchados.forEach(element => {
-        const parrafo = document.createElement("div")
-parrafo.innerHTML = 
-`<div class="card" style="width: 18rem;">
-  <div class="card-body">
+
+function crearHtml (element) {
+    const parrafo = document.createElement("div")
+    parrafo.innerHTML += `<div class="card" style="width: 18rem;">
+    <div class="card-body">
     <h5 class="card-title">${element.modelo}</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">${element.tamaño}</h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">${element.precio}</h6>
+     <h6 class="card-subtitle mb-2 text-body-secondary">${element.tamaño}</h6>
+   <h6 class="card-subtitle mb-2 text-body-secondary">${element.precio}</h6>
     <h6 class="card-subtitle mb-2 text-body-secondary">${element.stock}</h6>
-    <p class="card-text">Este es el acolchado que usted acaba de ingresar a nuestro sistema revolucionario.</p>
-  </div>
-</div>`
-document.body.append(parrafo) 
-
-
-    })
-
-    
+   <p class="card-text">Este es el acolchado que usted acaba de ingresar a nuestro sistema revolucionario.</p>
+   </div>
+   </div>`
+   document.body.append(parrafo) 
 }
 
+btn.addEventListener("click", () =>{
+    verStock()
+})
+function verStock (){
+    todosLosAcolchados.forEach(element => {
+        console.log(element)
+    crearHtml(element)
+}) 
+}
 
