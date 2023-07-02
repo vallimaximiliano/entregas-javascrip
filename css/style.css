@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap");
+
+body {
+  background-color: #fff;
+  color: black;
+}
 .botonPrincipal {
   font-family: "Montserrat", sans-serif;
   color: #fff;
@@ -12,7 +17,12 @@
 }
 
 .mainImg {
-  width: 95%;
+  width: 35%;
   margin: 10px;
   border-radius: 15px;
+}
+
+body.dark {
+  background-color: black;
+  color: white;
 }

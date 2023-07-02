@@ -1,3 +1,5 @@
+
+
 function IdFuncion(modelo, tamaño) {
     return `${modelo.slice(0, 3)}-${tamaño}`;
   }
@@ -36,7 +38,11 @@ function Acolchado(modelo, tamaño, precio, stock) {
 
     
     if (nombre === "" || tamanio === "" || precio === null || stock === null) {
-      document.getElementById("mensaje").innerHTML = "Por favor, rellena todos los campos.";
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por favor, complete todos los campos',
+      })
     } else {
         if (revisarExistencia == false) {
             let acolchadoUsuario = new Acolchado(
@@ -47,16 +53,24 @@ function Acolchado(modelo, tamaño, precio, stock) {
             );
             todosLosAcolchados.push(acolchadoUsuario);
            
-            document.getElementById("mensaje").innerHTML = "Se creó con éxito el Acolchado " + acolchadoUsuario.id;
+            Swal.fire({
+              icon: 'success',
+              title: 'BIEN',
+              text: "El acolchado " + acolchadoUsuario.modelo + " fue agregado con éxito",
+            })
           } else {
-            document.getElementById("mensaje").innerHTML = "Este Acolchado ya existe";
+            Swal.fire({
+              icon: 'warning',
+              title: 'ATENCIÓN',
+              text: "Este acolchado ya existe",
+            })
           }
 
 
     }
   }
 
-
+  
 
 function crearHtml (element) {
     const parrafo = document.createElement("div")
@@ -69,16 +83,20 @@ function crearHtml (element) {
    <p class="card-text">Este es el acolchado que usted acaba de ingresar a nuestro sistema revolucionario.</p>
    </div>
    </div>`
-   document.body.append(parrafo) 
+   document.body.append(parrafo)
+   const card=document.getElementById("card")
+   card.appendChild(parrafo)
 }
 
 btn.addEventListener("click", () =>{
     verStock()
 })
 function verStock (){
+  document.getElementById("card").innerHTML = ""
     todosLosAcolchados.forEach(element => {
         console.log(element)
     crearHtml(element)
 }) 
+
 }
 
