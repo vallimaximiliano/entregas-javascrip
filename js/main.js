@@ -1,8 +1,9 @@
-
+//creamos ID presonalizada
 
 function IdFuncion(modelo, tamaño) {
     return `${modelo.slice(0, 3)}-${tamaño}`;
   }
+//funcion constructora
 
 function Acolchado(modelo, tamaño, precio, stock) {
     this.id = IdFuncion(modelo, tamaño);
@@ -12,9 +13,11 @@ function Acolchado(modelo, tamaño, precio, stock) {
     this.stock = stock;
   }
   //array para guardar mis acolchados
+
   let todosLosAcolchados = [];
 
   // formulario
+
   function crearAcolchado() {
     let nombre = document.getElementById("nombre").value;
     let tamanio = "";
@@ -27,6 +30,7 @@ function Acolchado(modelo, tamaño, precio, stock) {
     let stock = document.getElementById("stock").value;
 
 // validar existencia
+
     let nuevoId = IdFuncion(nombre, tamanio);
     let revisarExistencia = false;
 
@@ -35,8 +39,7 @@ function Acolchado(modelo, tamaño, precio, stock) {
         revisarExistencia = true;
       }
     });
-
-    
+   
     if (nombre === "" || tamanio === "" || precio === null || stock === null) {
       Swal.fire({
         icon: 'error',
@@ -65,12 +68,10 @@ function Acolchado(modelo, tamaño, precio, stock) {
               text: "Este acolchado ya existe",
             })
           }
-
-
     }
   }
 
-  
+// funcion para crear la card del acolchdo ingresado
 
 function crearHtml (element) {
     const parrafo = document.createElement("div")
@@ -97,6 +98,19 @@ function verStock (){
         console.log(element)
     crearHtml(element)
 }) 
-
 }
+// llamo a mi base de datos con Fetch
 
+fetch("./db/acolchados.json")
+    .then(response => response.json())
+    .then(data => {
+        let app = document.getElementById('list')
+        data.forEach(item => {
+            let div = document.createElement('div');
+            div.innerHTML = `<p class="card-text">${item.id}</p><p class="card-text">${item.nombre}</p><p class="card-text">${item.precio}</p><p class="card-text">${item.tamanio}</p><p class="card-text">${item.img}</p>`;
+            list.appendChild(div);
+            
+        });
+    })
+    .catch((error) => console.error('Error:', error));
+  

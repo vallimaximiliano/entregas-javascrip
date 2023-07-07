@@ -1,0 +1,37 @@
+[
+    {
+       "id":"Paj-queen",
+       "nombre":"Acolchado Pájaros",
+       "precio":18000,
+       "tamanio":"Queen Size",
+       "img":"acolchado-pajaros.png"
+    },
+    {
+       "id":"Plu-queen",
+       "nombre":"Acolchado Plumas",
+       "precio":18000,
+       "tamanio":"Queen Size",
+       "img":"acolchado-plumas.png"
+    },
+    {
+       "id":"Cac-king",
+       "nombre":"Acolchado Cactus",
+       "precio":23000,
+       "tamanio":"King Size",
+       "img":"acolchado-cactus.png"
+    },
+    {
+       "id":"Bic-queen",
+       "nombre":"Acolchado Bici",
+       "precio":18000,
+       "tamanio":"Queen Size",
+       "img":"acolchado-bici.png"
+    },
+    {
+       "id":"Fla-king",
+       "nombre":"Acolchado Flamencos",
+       "precio":23000,
+       "tamanio":"King Size",
+       "img":"acolchado-flamencos.png"
+    }
+ ]
